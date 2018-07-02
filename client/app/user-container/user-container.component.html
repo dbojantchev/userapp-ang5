@@ -1,0 +1,55 @@
+<app-user (notifyChange)='notifyChange($event)'
+          [selectedUser]="selectedUser"
+          *ngIf="selectedUser">
+</app-user>
+
+<mat-table #table [dataSource]="dataSource" class="example-table"
+             matSort matSortActive="id" matSortDisableClear matSortDirection="asc">
+
+  <!-- Position Column -->
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fname">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.fname}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lname">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="clickCell($event, this)"> {{element.lname}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="notes">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Notes </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.notes}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a class="cell-action" href="javascript:void(0);" (click)="edit(element)">&#9998;</a>
+      <a class="cell-action" href="javascript:void(0);" (click)="delete(element)">&#9986;</a>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clickRow($event, row)">
+      <div style="height:40px">Row Detail</div>
+  </mat-row>
+</mat-table>
+
+<mat-paginator [length]="resultsLength" [pageSize]="30">
+</mat-paginator>
+
+<div class="add-user-row">
+  <button mat-raised-button color="primary" (click)="addUser($event)">Add User</button>
+</div>

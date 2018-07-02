@@ -1,0 +1,16 @@
+<h2>User Details</h2>
+
+<div>
+
+  <label>ID:
+    <span> {{ selectedUser.id }}</span>
+  </label>
+
+  <label>Name:
+    <input class="user-input"
+           [(ngModel)]="selectedUser.name"
+           (change)="onUserChange()"
+           placeholder="User Name"/>
+  </label>
+
+</div>

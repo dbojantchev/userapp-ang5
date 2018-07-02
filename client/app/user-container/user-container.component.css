@@ -1,0 +1,52 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.add-user-row {
+  margin:5px;
+
+}
+
+.mat-dialog-title {
+  font: 400 16px Roboto,"Helvetica Neue",sans-serif;
+  line-height: 32px;
+  padding-left:6px;
+  background:#438280;
+  color:white;
+  margin-bottom: 0px;
+}
+
+.mat-column-id {
+  flex: 0 0 300px;
+}
+
+.mat-column-notes {
+  flex: 0 0 250px;
+}
+
+
+
+.cell-action {
+  margin-right:10px;
+  text-decoration: none;
+}
